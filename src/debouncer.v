@@ -19,15 +19,15 @@ module debouncer #(
     reg [wrapping_counter_width:0] spg = 0;
     reg sample_now;
     
-    always @(posedge clk) begin
-        if (spg < sample_count_max) begin
-            spg <= spg + 1;
-            sample_now <= 0;
-        end else begin
-            spg <= 0;
-            sample_now <= 1;
-        end
-    end
+    // always @(posedge clk) begin
+    //     if (spg < sample_count_max) begin
+    //         spg <= spg + 1;
+    //         sample_now <= 0;
+    //     end else begin
+    //         spg <= 0;
+    //         sample_now <= 1;
+    //     end
+    // end
     
     integer j;
     reg [saturating_counter_width:0] ctrs [width-1:0];

@@ -30,24 +30,24 @@ module fifo #(
             write_ptr = 0;
 	       read_ptr = 0;
             length = 0;
-        end else begin
-            if (wr_en && !full) begin
-                data[write_ptr] = din;
-                write_ptr = (write_ptr + 1) % fifo_depth;
-                length = length + 1;
-            end else begin
-                data[write_ptr] = data[write_ptr];
-                write_ptr = write_ptr;
-                length = length;
-            end
+        // end else begin
+        //     if (wr_en && !full) begin
+        //         data[write_ptr] = din;
+        //         write_ptr = (write_ptr + 1) % fifo_depth;
+        //         length = length + 1;
+        //     end else begin
+        //         data[write_ptr] = data[write_ptr];
+        //         write_ptr = write_ptr;
+        //         length = length;
+        //     end
             
-            if (rd_en && !empty) begin
-                read_ptr = (read_ptr + 1) % fifo_depth;
-                length = length - 1;
-            end else begin
-                read_ptr = read_ptr;
-                length = length;
-            end
+        //     if (rd_en && !empty) begin
+        //         read_ptr = (read_ptr + 1) % fifo_depth;
+        //         length = length - 1;
+        //     end else begin
+        //         read_ptr = read_ptr;
+        //         length = length;
+        //     end
         end
     end
 endmodule
